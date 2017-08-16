@@ -44,13 +44,13 @@
     
 
 
-    <!-- http://example.com/think-pudding#hasAColor -->
+    <!-- http://example.com/think-pudding#hasColor -->
 
-    <owl:ObjectProperty rdf:about="http://example.com/think-pudding#hasAColor">
+    <owl:ObjectProperty rdf:about="http://example.com/think-pudding#hasColor">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:range>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://example.com/think-pudding#hasAColor"/>
+                <owl:onProperty rdf:resource="http://example.com/think-pudding#hasColor"/>
                 <owl:someValuesFrom rdf:resource="http://example.com/think-pudding#Color"/>
             </owl:Restriction>
         </rdfs:range>
@@ -117,7 +117,7 @@
 
     <owl:NamedIndividual rdf:about="http://example.com/think-pudding#Foo">
         <rdf:type rdf:resource="http://example.com/think-pudding#Candidate"/>
-        <hasAColor rdf:resource="http://example.com/think-pudding#Red"/>
+        <hasColor rdf:resource="http://example.com/think-pudding#Red"/>
     </owl:NamedIndividual>
     
 
@@ -129,7 +129,7 @@
         <rdf:type rdf:resource="http://example.com/think-pudding#Color"/>
         <rdf:type>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://example.com/think-pudding#hasAColor"/>
+                <owl:onProperty rdf:resource="http://example.com/think-pudding#hasColor"/>
                 <owl:someValuesFrom rdf:resource="http://example.com/think-pudding#Color"/>
             </owl:Restriction>
         </rdf:type>
@@ -169,7 +169,7 @@
                         <rdf:first>
                             <rdf:Description>
                                 <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
-                                <swrl:propertyPredicate rdf:resource="http://example.com/think-pudding#hasAColor"/>
+                                <swrl:propertyPredicate rdf:resource="http://example.com/think-pudding#hasColor"/>
                                 <swrl:argument1 rdf:resource="http://example.com/think-pudding#c"/>
                                 <swrl:argument2 rdf:resource="http://example.com/think-pudding#Red"/>
                             </rdf:Description>
