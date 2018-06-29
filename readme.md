@@ -1,3 +1,6 @@
+[![DOI](https://zenodo.org/badge/100519665.svg)](https://zenodo.org/badge/latestdoi/100519665)
+
+
 # Think Pudding
 A minimal proof of concept reasoner and ontology example.
 
