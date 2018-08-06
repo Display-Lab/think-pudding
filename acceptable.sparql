@@ -1,4 +1,0 @@
-SELECT ?subject
-WHERE {
- ?subject rdf:type think-pudding:AcceptableCandidate
-}
