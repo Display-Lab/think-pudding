@@ -1,0 +1,12 @@
+PREFIX inf: <https://inference.es/app/onto#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX exa: <http://example.com/ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX fio: <http://purl.obolibrary.org/obo/fio#>
+
+SELECT ?s ?type
+
+WHERE {
+  ?s rdf:type exa:TestClass .
+  ?s rdf:type ?type .
+}
