@@ -5,59 +5,36 @@
 A minimal proof of concept reasoner and ontology example.
 
 ## Description
-The minimal.owl ontology is rdf/xml formatted, and contains a single SWRL rule.
-That rule specifies that a Candidate that hasColor(Red) is an AcceptableCandidate.
-```
-Candidate(?c) ^ hasColor(?c, Red) -> AcceptableCandidate(?c)
-```
-There is a named individual Color "Red".
-The named individual candidate "Foo". 
-Foo hasColor Red in this ontology, and reasoners should infer that Foo is an AcceptableCandidate.
+Using triple store (fuseki) to store and query spek output from candidate smasher,
+determine which candidates are acceptable using ISRs.
 
 ## Use
 
-### StarDog Command Line
-Start up & demonstrate
-```
-# Start server and create database
-stardog-admin server start
-stardog-admin db create -n 'mydb' minimal.owl
+### Fuseki
 
-# Query without reasoning will return no results
-stardog query mydb acceptable.sparql
+1. Start in memory fuseki that allows for updates
+    ```sh
+    $FUSEKI_DIR=/opt/fuseki/apache-jena-fuseki-3.8.0
+    ${FUSEKI_DIR}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
+    ```
 
-# +---------+
-# | subject |
-# +---------+
-# +---------+
+2. Input example spek
+    ```sh
+    ./insert_spek.sh
+    ```
 
-# Query with reasoning will return single result, :Foo
-stardog query --reasoning acceptable.sparql
+3. Run ISR update to identify acceptable candidates
+    ```sh
+    ./update_isr.sh
+    ```
 
-# +---------+
-# | subject |
-# +---------+
-# | :Foo    |
-# +---------+
-```
-
-Cleanup & shutdown
-```
-stardog-admin db drop mydb
-stardog-admin server stop
-```
-
-### OwlTools Command Line
-The owltools does not make the inference that Foo is an AcceptableCandidate.
-
-```
-owltools minimal.owl --reasoner hermit --run-reasoner --assert-implied
-```
-
+4. Run query to get results
+    ```sh
+    ./query_isr.sh
+    ```
 
 ## Requirements
-- owltools
-- StarDog Community
+- fuseki
 
 ## License
 
