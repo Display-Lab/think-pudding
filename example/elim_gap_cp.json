@@ -1,15 +1,15 @@
 {
   "@context": {
     "cpo":    "http://example.com/cpo#",
-    "psdo":   "http://example.com/psdo#",
     "slowmo": "http://example.com/slowmo#",
     "xsd":    "http://www.w3.org/2001/XMLSchema#"
   },
 
   "@graph": [
     {
-      "@id": "http://example.com/app#elim_gap_cp",
+      "@id": "http://example.com/app#eliminate_neg_gap",
       "@type": "cpo:causal_pathway",
+      "name": "Eliminate Negative Gap",
 
       "cpo:has_prerequisite":[
         "negative_gap"
