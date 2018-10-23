@@ -1,0 +1,24 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX schema: <http://schema.org/>
+PREFIX obo: <http://purl.obolibrary.org/obo/>
+PREFIX psdo: <http://purl.obolibrary.org/obo/psdo#>
+PREFIX cpo: <http://example.com/cpo#>
+PREFIX slowmo: <http://example.com/slowmo#>
+PREFIX exa: <http://example.com/app#>
+
+SELECT ?candi ?person ?path
+FROM <http://localhost:3030/ds/spek>
+FROM <http://localhost:3030/ds/seeps>
+WHERE {
+  ?candi a cpo:cpo_0000053 .
+  ?path a cpo:causal_pathway .
+  ?candi slowmo:AncestorPerformer ?person .
+  
+  FILTER NOT EXISTS {
+    ?path cpo:has_prerequisite ?attr .
+    FILTER NOT EXISTS {
+      ?candi obo:RO_0000091|slowmo:uses_intervention_property ?attr .
+    }
+  }
+}

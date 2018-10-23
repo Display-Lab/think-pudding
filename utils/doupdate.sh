@@ -2,7 +2,7 @@
 
 # Assumes fuseki-server with dataset named 'ds'
 
-curl -v --data-binary @example/class/upd.sparql \
+curl --data-binary "@${1}" \
   --header 'Content-type: application/sparql-update' \
   'http://localhost:3030/ds/update'
 
