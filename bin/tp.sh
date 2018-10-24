@@ -47,23 +47,28 @@ while (( "$#" )); do
   esac
 done
 
+# Die if causal pathways file not given.
 if [[ -z ${CP_FILE} ]]; then
   echo >&2 "Causal pathway file required."; 
   exit 1;
+fi
+
+# Warn if causal pathways file not found.
+if [[ ! -r ${CP_FILE} ]]; then
+  echo >&2 "Causal Pathway file not readable."; 
 fi
 
 # Check if FUSEKI is running.
 FUSEKI_PING=$(curl -s -o /dev/null -w "%{http_code}" localhost:3030/$/ping)
 if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
   # Error
-  echo >&2 "Fuseki not running locally."; exit 1;
+  echo >&2 "Fuseki not running locally."; 
 
   # Try to start custom fuseki locally
   FUSEKI_DIR=/opt/fuseki/apache-jena-fuseki-3.8.0
-  ${FUSEKI_DIR}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
+  ${FUSEKI_DIR}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &!
 
-  # Exit
-  exit 1
+  exit 1;
 fi
 
 # Define SPARQL Queries for updates and results
@@ -93,6 +98,7 @@ WHERE {
 }
 USPARQL
 
+
 # Read from SPEK_FILE or pipe from stdin
 #   Use '-' to instruct curl to read from stdin
 if [[ -z ${SPEK_FILE} ]]; then
@@ -116,7 +122,4 @@ curl --silent -X POST --data-binary "${UPD_SPARQL}" \
 # get updated spek
 curl --silent -X GET --header 'Accept: application/ld+json' \
   'http://localhost:3030/ds?graph=spek'
-  
-
-# done
 
