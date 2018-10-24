@@ -13,7 +13,8 @@
       "name": "Eliminate Negative Gap",
 
       "cpo:has_prerequisite":[
-        "negative_gap"
+        "negative_gap", 
+        "normative_comparator"
       ],
 
       "cpo:has_moderator":[
@@ -38,7 +39,8 @@
       "name": "Onward Upward",
 
       "cpo:has_prerequisite":[
-        "positive_trend"
+        "positive_trend",
+        "show_trend"
       ],
 
       "cpo:has_moderator":[
@@ -59,7 +61,9 @@
 
       "cpo:has_prerequisite":[
         "negative_trend",
-        "negative_gap"
+        "negative_gap",
+        "show_trend",
+        "normative_comparator"
       ],
 
       "cpo:has_moderator":[
