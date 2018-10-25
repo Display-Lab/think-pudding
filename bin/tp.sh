@@ -107,17 +107,17 @@ fi
 
 curl --silent -X PUT --data-binary "@${SPEK_FILE}" \
   --header 'Content-type: application/ld+json' \
-  'http://localhost:3030/ds?graph=spek'
+  'http://localhost:3030/ds?graph=spek' >&2
 
 # Load in causal pathways
 curl --silent -X PUT --data-binary @${CP_FILE} \
   --header 'Content-type: application/ld+json' \
-  'http://localhost:3030/ds?graph=seeps'
+  'http://localhost:3030/ds?graph=seeps' >&2
 
 # run update sparql
 curl --silent -X POST --data-binary "${UPD_SPARQL}" \
   --header 'Content-type: application/sparql-update' \
-  'http://localhost:3030/ds/update'
+  'http://localhost:3030/ds/update' >&2
 
 # get updated spek
 curl --silent -X GET --header 'Accept: application/ld+json' \
