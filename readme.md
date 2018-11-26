@@ -2,11 +2,11 @@
 
 
 # Think Pudding
-A minimal proof of concept reasoner and ontology example.
+A minimal proof of concept candidate reasoner.
 
 ## Description
 Using triple store (fuseki) to store and query spek output from candidate smasher,
-determine which candidates are acceptable using ISRs.
+determine which candidates are acceptable using causal pathways.
 
 ## Use
 
