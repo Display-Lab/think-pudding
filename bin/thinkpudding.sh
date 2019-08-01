@@ -86,10 +86,10 @@ USING <http://localhost:3030/ds/spek>
 USING <http://localhost:3030/ds/seeps>
 WHERE {
   ?candi a cpo:cpo_0000053 .
-  ?path a cpo:causal_pathway .
+  ?path a cpo:cpo_0000029 .
   
   FILTER NOT EXISTS {
-    ?path cpo:has_prerequisite ?attr .
+    ?path slowmo:HasPrecondition ?attr .
     FILTER NOT EXISTS {
       ?candi obo:RO_0000091|slowmo:uses_intervention_property ?attr .
     }
