@@ -74,7 +74,6 @@ fi
 read -r -d '' UPD_SPARQL <<'USPARQL'
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
-PREFIX cpo: <http://example.com/cpo#>
 PREFIX slowmo: <http://example.com/slowmo#>
 
 INSERT {
@@ -85,13 +84,15 @@ INSERT {
 USING <http://localhost:3030/ds/spek>
 USING <http://localhost:3030/ds/seeps>
 WHERE {
-  ?candi a cpo:cpo_0000053 .
-  ?path a cpo:cpo_0000029 .
-  
+  ?path a obo:cpo_0000029 .
+  ?candi a obo:cpo_0000053 .
+
   FILTER NOT EXISTS {
     ?path slowmo:HasPrecondition ?attr .
+    ?attr a ?atype .
     FILTER NOT EXISTS {
-      ?candi obo:RO_0000091|slowmo:uses_intervention_property ?attr .
+      ?candi obo:RO_0000091 ?disp .
+      ?disp a ?atype
     }
   }
 }
