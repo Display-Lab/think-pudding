@@ -8,11 +8,13 @@ Usage:
   tp.sh -s spek.json  
 
 TP reads a spek from stdin or provided file path.  
+Emits updated spek to stdout unless update-only is used.
 
 Options:
-  -h | --help   print help and exit
+  -h | --help     print help and exit
   -p | --pathways path to configuration file
-  -s | --spek   path to spek file (default to stdin)
+  -s | --spek     path to spek file (default to stdin)
+  -u | --update-only Load nothing. Run update query. 
 HEREDOC
 
 # Parse args
@@ -32,6 +34,10 @@ while (( "$#" )); do
       SPEK_FILE="${2}"
       shift 2
       ;;
+    -u|--update-only)
+      UPDATE_ONLY="TRUE"
+      shift 1
+      ;;
     --) # end argument parsing
       shift
       break
@@ -47,15 +53,19 @@ while (( "$#" )); do
   esac
 done
 
-# Die if causal pathways file not given.
-if [[ -z ${CP_FILE} ]]; then
-  echo >&2 "Causal pathway file required."; 
-  exit 1;
-fi
+# Unless update only, require causal pathways
+if [ -z ${UPDATE_ONLY} ]; then
+  # Die if causal pathways file not given.
+  if [[ -z ${CP_FILE} ]]; then
+    echo >&2 "Causal pathway file required."; 
+    exit 1;
+  fi
 
-# Warn if causal pathways file not found.
-if [[ ! -r ${CP_FILE} ]]; then
-  echo >&2 "Causal Pathway file not readable."; 
+  # Die if causal pathways file not found.
+  if [[ ! -r ${CP_FILE} ]]; then
+    echo >&2 "Causal Pathway file not readable."; 
+    exit 1;
+  fi
 fi
 
 # Check if FUSEKI is running.
@@ -105,21 +115,26 @@ if [[ -z ${SPEK_FILE} ]]; then
   SPEK_FILE="-"
 fi
 
-curl --silent -X PUT --data-binary "@${SPEK_FILE}" \
-  --header 'Content-type: application/ld+json' \
-  'http://localhost:3030/ds?graph=spek' >&2
+# Unless update only, load spek and causal pathways into fuseki.
+if [ -z ${UPDATE_ONLY} ]; then
+  # Load in spek
+  curl --silent -X PUT --data-binary "@${SPEK_FILE}" \
+    --header 'Content-type: application/ld+json' \
+    'http://localhost:3030/ds?graph=spek' >&2
 
-# Load in causal pathways
-curl --silent -X PUT --data-binary @${CP_FILE} \
-  --header 'Content-type: application/ld+json' \
-  'http://localhost:3030/ds?graph=seeps' >&2
+  # Load in causal pathways
+  curl --silent -X PUT --data-binary @${CP_FILE} \
+    --header 'Content-type: application/ld+json' \
+    'http://localhost:3030/ds?graph=seeps' >&2
+fi
 
 # run update sparql
 curl --silent -X POST --data-binary "${UPD_SPARQL}" \
   --header 'Content-type: application/sparql-update' \
   'http://localhost:3030/ds/update' >&2
 
-# get updated spek
-curl --silent -X GET --header 'Accept: application/ld+json' \
-  'http://localhost:3030/ds?graph=spek'
-
+# Unless update only, get updated spek and emit to stdout.
+if [ -z ${UPDATE_ONLY} ]; then
+  curl --silent -X GET --header 'Accept: application/ld+json' \
+    'http://localhost:3030/ds?graph=spek'
+fi
