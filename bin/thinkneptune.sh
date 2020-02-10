@@ -63,7 +63,7 @@ PREFIX obo: <http://purl.obolibrary.org/obo/>
 PREFIX slowmo: <http://example.com/slowmo#>
 
 INSERT {
-  GRAPH <<http://example.com/spek>> {
+  GRAPH <http://example.com/spek> {
     ?candi slowmo:acceptable_by ?path .
   }
 }
