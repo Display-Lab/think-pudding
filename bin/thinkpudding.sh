@@ -3,9 +3,9 @@
 # Usage message
 read -r -d '' USE_MSG <<'HEREDOC'
 Usage:
-  tp.sh -h
-  tp.sh -p causal_pathway.json
-  tp.sh -s spek.json  
+  thinkpudding.sh -h
+  thinkpudding.sh -p causal_pathway.json
+  thinkpudding.sh -s spek.json  
 
 TP reads a spek from stdin or provided file path.  
 Emits updated spek to stdout unless update-only is used.
@@ -80,7 +80,7 @@ if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
   read -p "Waiting five secs for Fuseki to start..." -t 5
 fi
 
-# Define SPARQL Queries for updates and results
+# SPARQL Queries for updates
 read -r -d '' UPD_SPARQL <<'USPARQL'
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX obo: <http://purl.obolibrary.org/obo/>
