@@ -69,13 +69,14 @@ if [ -z ${UPDATE_ONLY} ]; then
 fi
 
 # Check if FUSEKI is running.
+
+FUSEKI_DIR=${FUSEKI_DIR:-/opt/fuseki}
 FUSEKI_PING=$(curl -s -o /dev/null -w "%{http_code}" localhost:3030/$/ping)
 if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
   # Error
   echo >&2 "Fuseki not running locally."; 
 
   # Try to start custom fuseki locally
-  FUSEKI_DIR=/opt/fuseki/apache-jena-fuseki-3.10.0
   ${FUSEKI_DIR}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
   read -p "Waiting five secs for Fuseki to start..." -t 5
 fi
