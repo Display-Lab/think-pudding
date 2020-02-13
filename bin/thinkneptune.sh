@@ -85,7 +85,7 @@ WHERE {
 UPDSPARQL
 
 # Trim the endlines off the query to accomodate Neptune's HTTP bullshit
-QUERY=${UPD_SPARQL//$'\n'/}
+QUERY=${UPD_SPARQL//$'\n'/ }
 
 curl -X POST --data-binary "update=${QUERY}" "${END_POINT}:${PORT}/sparql"
 
