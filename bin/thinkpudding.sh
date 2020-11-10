@@ -8,8 +8,8 @@ command -v fuseki-server 1> /dev/null 2>&1 || \
 read -r -d '' USE_MSG <<'HEREDOC'
 Usage:
   thinkpudding.sh -h
-  thinkpudding.sh -p causal_pathway.json
-  thinkpudding.sh -s spek.json  
+  thinkpudding.sh -p causal_pathway.json   
+  thinkpudding.sh -s spek.json -p causal_pathway.json   
 
 TP reads a spek from stdin or provided file path.  
 Emits updated spek to stdout unless update-only is used.
@@ -21,7 +21,29 @@ Options:
   -u | --update-only Load nothing. Run update query. 
 HEREDOC
 
-# Parse args
+# From Chris Down https://gist.github.com/cdown/1163649
+urlencode() {
+    # urlencode <string>
+    old_lc_collate=$LC_COLLATE
+    LC_COLLATE=C
+    local length="${#1}"
+    for (( i = 0; i < length; i++ )); do
+        local c="${1:$i:1}"
+        case $c in
+            [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
+            *) printf '%%%02X' "'$c" ;;
+        esac
+    done
+    LC_COLLATE=$old_lc_collate
+}
+
+# From Chris Down https://gist.github.com/cdown/1163649
+urldecode() {
+    # urldecode <string>
+    local url_encoded="${1//+/ }"
+    printf '%b' "${url_encoded//%/\\x}"
+}
+
 # Parse args
 PARAMS=()
 while (( "$#" )); do
@@ -59,6 +81,7 @@ done
 
 # Unless update only, require causal pathways
 if [ -z ${UPDATE_ONLY} ]; then
+
   # Die if causal pathways file not given.
   if [[ -z ${CP_FILE} ]]; then
     echo >&2 "Causal pathway file required."; 
@@ -121,15 +144,24 @@ fi
 
 # Unless update only, load spek and causal pathways into fuseki.
 if [ -z ${UPDATE_ONLY} ]; then
+
+  VAL_SPEK="http://localhost:3030/ds/spek"
+  ENC_SPEK=$(urlencode "${VAL_SPEK}")
+  PARAM_SPEK="graph=${ENC_SPEK}"
+
+  VAL_SEEPS="http://localhost:3030/ds/seeps"
+  ENC_SEEPS=$(urlencode "${VAL_SEEPS}")
+  PARAM_SEEPS="graph=${ENC_SEEPS}"
+
   # Load in spek
   curl --silent -X PUT --data-binary "@${SPEK_FILE}" \
     --header 'Content-type: application/ld+json' \
-    'http://localhost:3030/ds?graph=spek' >&2
+    "http://localhost:3030/ds?${PARAM_SPEK}" >&2
 
   # Load in causal pathways
   curl --silent -X PUT --data-binary @${CP_FILE} \
     --header 'Content-type: application/ld+json' \
-    'http://localhost:3030/ds?graph=seeps' >&2
+    "http://localhost:3030/ds?${PARAM_SEEPS}" >&2
 fi
 
 # run update sparql
@@ -139,6 +171,7 @@ curl --silent -X POST --data-binary "${UPD_SPARQL}" \
 
 # Unless update only, get updated spek and emit to stdout.
 if [ -z ${UPDATE_ONLY} ]; then
-  curl --silent -X GET --header 'Accept: application/ld+json' \
-    'http://localhost:3030/ds?graph=spek'
+  curl --silent -G --header 'Accept: application/ld+json' \
+    --data-urlencode "graph=http://localhost:3030/ds/spek" \
+    'http://localhost:3030/ds'
 fi
