@@ -43,8 +43,7 @@ Determine which candidates are acceptable using causal pathways.
 
 1. Start in memory fuseki that allows for updates
     ```sh
-    FUSEKI_DIR=/opt/fuseki/apache-jena-fuseki-3.8.0
-    ${FUSEKI_DIR}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
+    ${FUSEKI_HOME}/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
     ```
 
 2. Input example spek

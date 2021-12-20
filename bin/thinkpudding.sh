@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Requires xmllint to be installed
-command -v fuseki-server 1> /dev/null 2>&1 || \
+command -v $FUSEKI_HOME/fuseki-server 1> /dev/null 2>&1 || \
   { echo >&2 "fuseki-server required but it's not installed.  Aborting."; exit 1; }
 
 # Usage message
@@ -100,10 +100,10 @@ fi
 FUSEKI_PING=$(curl -s -o /dev/null -w "%{http_code}" localhost:3030/$/ping)
 if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
   # Error
-  echo >&2 "Fuseki not running locally."; 
+  echo >&2 "Fuseki not running locally.";
 
   # Try to start custom fuseki locally
-  fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
+  $FUSEKI_HOME/fuseki-server --mem --update /ds 1> fuseki.out 2>&1 &
   read -p "Waiting five secs for Fuseki to start..." -t 5
 fi
 
