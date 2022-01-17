@@ -98,7 +98,7 @@ if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
 
   # Try to start custom fuseki locally
   ${FUSEKI_HOME}/fuseki-server --mem --update /ds 1>fuseki.out 2>&1 &
-  read -p "Waiting five secs for Fuseki to start..." -t 5
+  read -p "Waiting five secs for Fuseki to start..." -t 10
 fi
 
 # SPARQL Queries for updates
