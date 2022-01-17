@@ -74,6 +74,22 @@ while (("$#")); do
   esac
 done
 
+# Unless update only, require causal pathways
+if [ -z ${UPDATE_ONLY} ]; then
+
+  # Die if causal pathways file not given.
+  if [[ -z ${CP_FILE} ]]; then
+    echo >&2 "Causal pathway file required."
+    exit 1
+  fi
+
+  # Die if causal pathways file not found.
+  if [[ ! -r ${CP_FILE} ]]; then
+    echo >&2 "Causal Pathway file not readable."
+    exit 1
+  fi
+fi
+
 # Check if FUSEKI is running.
 FUSEKI_PING=$(curl -s -o /dev/null -w "%{http_code}" localhost:3030/$/ping)
 if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
@@ -119,10 +135,13 @@ if [[ -z ${SPEK_FILE} ]]; then
   SPEK_FILE="-"
 fi
 
+# Unless update only, load spek and causal pathways into fuseki.
+if [ -z ${UPDATE_ONLY} ]; then
+
   FUSEKI_DATASET_URL="http://localhost:3030/ds"
   SPEK_URL="${FUSEKI_DATASET_URL}/spek"
-  ENCODED_SPEK_URL=$(urlencode "${SPEK_URL}")
   CAUSAL_PATHWAYS_URL="${FUSEKI_DATASET_URL}/seeps"
+  ENCODED_SPEK_URL=$(urlencode "${SPEK_URL}")
   ENCODED_CAUSAL_PATHWAYS_URL=$(urlencode "${CAUSAL_PATHWAYS_URL}")
 
   # Load in spek
@@ -134,6 +153,7 @@ fi
   curl --silent -X PUT --data-binary @${CP_FILE} \
     --header 'Content-type: application/ld+json' \
     "${FUSEKI_DATASET_URL}?graph=${ENCODED_CAUSAL_PATHWAYS_URL}" >&2
+fi
 
 # run update sparql
 curl --silent -X POST --data-binary "${UPD_SPARQL}" \
@@ -141,6 +161,6 @@ curl --silent -X POST --data-binary "${UPD_SPARQL}" \
   "${FUSEKI_DATASET_URL}/update" >&2
 
 # get updated spek and emit to stdout.
-  curl --silent -G --header 'Accept: application/ld+json' \
-    --data-urlencode "graph=${SPEK_URL}" \
-    "${FUSEKI_DATASET_URL}"
+curl --silent -G --header 'Accept: application/ld+json' \
+  --data-urlencode "graph=${SPEK_URL}" \
+  "${FUSEKI_DATASET_URL}"
