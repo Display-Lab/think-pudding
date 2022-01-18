@@ -24,21 +24,6 @@ Options:
   -u | --update-only Load nothing. Run update query. 
 HEREDOC
 
-# From Chris Down https://gist.github.com/cdown/1163649
-urlencode() {
-  old_lc_collate=$LC_COLLATE
-  LC_COLLATE=C
-  local length="${#1}"
-  for ((i = 0; i < length; i++)); do
-    local c="${1:$i:1}"
-    case $c in
-    [a-zA-Z0-9.~_-]) printf '%s' "$c" ;;
-    *) printf '%%%02X' "'$c" ;;
-    esac
-  done
-  LC_COLLATE=$old_lc_collate
-}
-
 # Parse args
 PARAMS=()
 while (("$#")); do
@@ -96,9 +81,9 @@ if [[ -z ${FUSEKI_PING}} || ${FUSEKI_PING} -ne 200 ]]; then
   # Error
   echo >&2 "Fuseki not running locally."
 
-  # Try to start custom fuseki locally
+  # Try to start custom fuseki locally, will temporarily create a run/ directory
   ${FUSEKI_HOME}/fuseki-server --mem --update /ds 1>fuseki.out 2>&1 &
-  read -p "Waiting five secs for Fuseki to start..." -t 10
+  read -p "Waiting 5 seconds for Fuseki to start..." -t 5
 fi
 
 # SPARQL Queries for updates
@@ -141,26 +126,27 @@ if [ -z ${UPDATE_ONLY} ]; then
   FUSEKI_DATASET_URL="http://localhost:3030/ds"
   SPEK_URL="${FUSEKI_DATASET_URL}/spek"
   CAUSAL_PATHWAYS_URL="${FUSEKI_DATASET_URL}/seeps"
-  ENCODED_SPEK_URL=$(urlencode "${SPEK_URL}")
-  ENCODED_CAUSAL_PATHWAYS_URL=$(urlencode "${CAUSAL_PATHWAYS_URL}")
 
   # Load in spek
-  curl --silent -X PUT --data-binary "@${SPEK_FILE}" \
+  curl --silent PUT \
+    --data-binary "@${SPEK_FILE}" \
     --header 'Content-type: application/ld+json' \
-    "${FUSEKI_DATASET_URL}?graph=${ENCODED_SPEK_URL}" >&2
+    "${FUSEKI_DATASET_URL}?graph=${SPEK_URL}" >&2
 
   # Load in causal pathways
-  curl --silent -X PUT --data-binary @${CP_FILE} \
+  curl --silent PUT \
+    --data-binary @${CP_FILE} \
     --header 'Content-type: application/ld+json' \
-    "${FUSEKI_DATASET_URL}?graph=${ENCODED_CAUSAL_PATHWAYS_URL}" >&2
+    "${FUSEKI_DATASET_URL}?graph=${CAUSAL_PATHWAYS_URL}" >&2
 fi
 
 # run update sparql
-curl --silent -X POST --data-binary "${UPD_SPARQL}" \
+curl --silent POST \
+  --data-binary "${UPD_SPARQL}" \
   --header 'Content-type: application/sparql-update' \
   "${FUSEKI_DATASET_URL}/update" >&2
 
 # get updated spek and emit to stdout.
-curl --silent -G --header 'Accept: application/ld+json' \
-  --data-urlencode "graph=${SPEK_URL}" \
-  "${FUSEKI_DATASET_URL}"
+curl --silent \
+  --header 'Accept: application/ld+json' \
+  "${FUSEKI_DATASET_URL}?graph=${SPEK_URL}"
