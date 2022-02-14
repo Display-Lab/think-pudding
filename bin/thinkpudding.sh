@@ -94,20 +94,20 @@ PREFIX slowmo: <http://example.com/slowmo#>
 
 INSERT {
   GRAPH <http://localhost:3030/ds/spek> {
-    ?candi slowmo:acceptable_by ?path .
+    ?candidate slowmo:acceptable_by ?path .
   }
 }
 USING <http://localhost:3030/ds/spek>
 USING <http://localhost:3030/ds/seeps>
 WHERE {
   ?path a obo:cpo_0000029 .
-  ?candi a obo:cpo_0000053 .
+  ?candidate a obo:cpo_0000053 .
 
   FILTER NOT EXISTS {
     ?path slowmo:HasPrecondition ?attr .
     ?attr a ?atype .
     FILTER NOT EXISTS {
-      ?candi obo:RO_0000091 ?disp .
+      ?candidate obo:RO_0000091 ?disp .
       ?disp a ?atype
     }
   }
