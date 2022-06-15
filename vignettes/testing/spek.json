@@ -1,0 +1,911 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "slowmo": "http://example.com/slowmo#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/terms/",
+    "psdo": "http://purl.obolibrary.org/obo/",
+    "slowmo:Measure": "http://example.com/slowmo#Measure",
+    "slowmo:IsAboutPerformer": "http://example.com/slowmo#IsAboutPerformer",
+    "slowmo:ColumnUse": "http://example.com/slowmo#ColumnUse",
+    "slowmo:IsAboutTemplate": "http://example.com/slowmo#IsAboutTemplate",
+    "slowmo:spek": "http://example.com/slowmo#spek",
+    "slowmo:IsAboutCausalPathway": "http://example.com/slowmo#IsAboutCausalPathway",
+    "slowmo:IsAboutOrganization": "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo:IsAboutMeasure": "http://example.com/slowmo#IsAboutMeasure",
+    "slowmo:InputTable": "http://example.com/slowmo#InputTable",
+    "slowmo:WithComparator": "http://example.com/slowmo#WithComparator",
+    "has_part": "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
+    "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091"
+  },
+  "@id": "http://example.com/app#display-lab",
+  "@type": "http://example.com/slowmo#spek",
+  "slowmo:IsAboutOrganization": {
+    "@type": "Organization",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "USA",
+      "addressRegion": "MI",
+      "streetAddress": "DLHS, 1161 NIB, 300 N Ingalls St.",
+      "postalCode": "48109",
+      "name": "DisplayLab"
+    }
+  },
+  "slowmo:IsAboutMeasure": [
+    {
+      "@id": "_:NMB01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Train of Four Taken",
+      "identifier": "NMB01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:NMB02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Reversal Administered",
+      "identifier": "NMB02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PUL01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Protective Tidal Volume, 10 mL/kg PBW",
+      "identifier": "PUL01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GLU01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "High Glucose Treated, Intraop",
+      "identifier": "GLU01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GLU02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Low Glucose Treated, Intraop",
+      "identifier": "GLU02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TRAN01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Transfusion Management Vigilance",
+      "identifier": "TRAN01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TRAN02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Overtransfusion",
+      "identifier": "TRAN02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.10
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:BP01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Low MAP Prevention < 55",
+      "identifier": "BP01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:BP02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Avoiding Monitoring Gaps",
+      "identifier": "BP02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.90
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:MED01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Avoiding Medication Overdose",
+      "identifier": "MED01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.05
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:FLUID01NC",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Minimizing Colloid Use (Non-Cardiac)",
+      "identifier": "FLUID01NC",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:FLUID01C",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Minimizing Colloid Use (Cardiac)",
+      "identifier": "FLUID01C",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:AKI01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Acute Kidney Injury",
+      "identifier": "AKI01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Thermoregulation Vigilance - Active Warming",
+      "identifier": "TEMP01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Thermoregulation Monitoring - Core Temperature",
+      "identifier": "TEMP02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Perioperative Hypothermia",
+      "identifier": "TEMP03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TOC02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Postoperative Transfer of Care to PACU",
+      "identifier": "TOC02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "PONV Prophylaxis: Adults (Old)",
+      "identifier": "PONV01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PUL02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Protective Tidal Volume, 8 mL/kg PBW",
+      "identifier": "PUL02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TOC03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Postoperative Transfer of Care to ICU",
+      "identifier": "TOC03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:CARD02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Myocardial Infarction",
+      "identifier": "CARD02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.05
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "PONV Prophylaxis (Old): Pediatrics",
+      "identifier": "PONV02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TOC01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Intraoperative Transfer of Care",
+      "identifier": "TOC01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PUL03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Administration of PEEP",
+      "identifier": "PUL03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:CARD03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Myocardial Infarction, High Risk Patients",
+      "identifier": "CARD03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.05
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:SUS01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Low Fresh Gas Flow",
+      "identifier": "SUS01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Postoperative Nausea or Vomiting Outcome",
+      "identifier": "PONV03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:BP03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Low Map Prevention < 65",
+      "identifier": "BP03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV03b",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Postoperative Nausea or Vomiting Outcome",
+      "identifier": "PONV03b",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GLU03",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "High Glucose Treated, Periop",
+      "identifier": "GLU03",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GLU04",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Low Glucose Treated, Periop",
+      "identifier": "GLU04",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP04",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Pediatric Temperature Management",
+      "identifier": "TEMP04",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:ABX01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Antibiotic Timing for Cesarean Delivery",
+      "identifier": "ABX01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:MORT01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "30 Day Post-Op In-Hospital Mortality Rate",
+      "identifier": "MORT01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GLU05",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Escalated High Glucose Treated",
+      "identifier": "GLU05",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PAIN01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Multimodal Analgesia, Pediatrics",
+      "identifier": "PAIN01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:BP04",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "SBP < 90 in Cesarean Deliveries",
+      "identifier": "BP04",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GA01",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "General Anesthesia During Cesarean Deliveries",
+      "identifier": "GA01",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PAIN02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Multimodal Analgesia",
+      "identifier": "PAIN02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV04",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "PONV Prophylaxis: Pediatrics",
+      "identifier": "PONV04",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP05",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Hypothermia in Cesarean Deliveries",
+      "identifier": "TEMP05",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:GA02",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "General anesthesia after neuraxial in Cesarean Deliveries",
+      "identifier": "GA02",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:TEMP06",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Hypothermia Avoidance in Cardiac Surgery",
+      "identifier": "TEMP06",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.1
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    },
+    {
+      "@id": "_:PONV05",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "PONV Prophylaxis: Adults",
+      "identifier": "PONV05",
+      "slowmo:WithComparator": [
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000094",
+          "name": "goal",
+          "dc:title": "GOAL",
+          "slowmo:ComparisonValue": 0.9
+        },
+        {
+          "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+          "name": "peers",
+          "dc:title": "PEERS"
+        }
+      ]
+    }
+  ],
+  "slowmo:IsAboutTemplate": [
+    {
+      "@id": "http://feedbacktailor.org/ftkb#TopPerformerBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#WorseSocialBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ReachedSocialBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#BetterGoalBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ApproachingGoalBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#LostGoalBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ReachedGoalBar"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#PerformanceWorseningBar"
+    }
+  ],
+  "slowmo:InputTable": {
+    "@type": "http://www.w3.org/ns/csvw#Table",
+    "dc:title": "Case Counts",
+    "csvw:dialect": {
+      "csvw:commentPrefix": "",
+      "csvw:delimiter": ",",
+      "csvw:doubleQuote": true,
+      "csvw:encoding": "utf-8",
+      "csvw:header": true,
+      "csvw:headerRowCount": "1",
+      "csvw:lineTerminators": [
+        "\\n"
+      ],
+      "csvw:quoteChar": "\"",
+      "csvw:skipBlankRows": true,
+      "csvw:skipColumns": "",
+      "csvw:skipInitialSpace": false,
+      "csvw:skipRows": "",
+      "csvw:trim": false
+    },
+    "csvw:tableSchema": {
+      "csvw:columns": [
+        {
+          "csvw:datatype": "string",
+          "dc:description": "Name of measurement",
+          "csvw:name": "Measure_Name",
+          "csvw:title": "Measure",
+          "slowmo:ColumnUse": "measure"
+        },
+        {
+          "csvw:datatype": "string",
+          "dc:description": "Staff identification number",
+          "csvw:name": "Staff_Number",
+          "csvw:title": "Staff ID",
+          "slowmo:ColumnUse": "identifier"
+        },
+        {
+          "csvw:datatype": "date",
+          "dc:description": "Performance calendar month.",
+          "csvw:name": "Month",
+          "csvw:title": "Month",
+          "slowmo:ColumnUse": "time"
+        },
+        {
+          "csvw:datatype": "integer",
+          "dc:description": "Count of non-excluded cases.",
+          "csvw:name": "Denominator",
+          "csvw:title": "Count of Non-Excluded Cases",
+          "slowmo:ColumnUse": "denominator"
+        },
+        {
+          "csvw:datatype": "integer",
+          "dc:description": "Count of cases that passed measurement criteria.",
+          "csvw:name": "Passed_Count",
+          "csvw:title": "Count of Passed Cases",
+          "slowmo:ColumnUse": "numerator"
+        }
+      ]
+    }
+  }
+}
+

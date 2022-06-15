@@ -1,0 +1,32 @@
+15:43:29 INFO  Server          :: Apache Jena Fuseki 4.5.0
+15:43:29 INFO  Config          :: FUSEKI_HOME=/Users/pboisver/dev/displaylab/apache-jena-fuseki-4.5.0
+15:43:29 INFO  Config          :: FUSEKI_BASE=/Users/pboisver/dev/code-green/think-pudding/vignettes/test/run
+15:43:29 INFO  Config          :: Shiro file: file:///Users/pboisver/dev/code-green/think-pudding/vignettes/test/run/shiro.ini
+15:43:29 INFO  Config          :: Template file: templates/config-mem
+15:43:30 INFO  Server          :: Database: in-memory
+15:43:30 INFO  Server          :: Path = /ds
+15:43:30 INFO  Server          :: System
+15:43:30 INFO  Server          ::   Memory: 4.0 GiB
+15:43:30 INFO  Server          ::   Java:   17.0.2
+15:43:30 INFO  Server          ::   OS:     Mac OS X 12.4 aarch64
+15:43:30 INFO  Server          ::   PID:    22147
+15:43:30 INFO  Server          :: Started 2022/06/14 15:43:30 EDT on port 3030
+15:43:33 INFO  Fuseki          :: [1] POST http://localhost:3030/ds?graph=http://localhost:3030/ds/spek
+15:43:34 INFO  Fuseki          :: [1] Body: Content-Length=341609, Content-Type=application/ld+json, Charset=null => JSON-LD : Count=4596 Triples=4596 Quads=0
+15:43:34 INFO  Fuseki          :: [1] 201 Created (279 ms)
+15:43:34 INFO  Fuseki          :: [2] POST http://localhost:3030/ds?graph=http://localhost:3030/ds/seeps
+15:43:34 INFO  Fuseki          :: [2] Body: Content-Length=17326, Content-Type=application/ld+json, Charset=null => JSON-LD : Count=253 Triples=253 Quads=0
+15:43:34 INFO  Fuseki          :: [2] 201 Created (11 ms)
+15:43:34 INFO  Fuseki          :: [3] POST http://localhost:3030/ds/update
+15:43:34 INFO  Fuseki          :: [3] Update
+15:43:34 INFO  Fuseki          :: [3] 204 No Content (194 ms)
+15:43:34 INFO  Fuseki          :: [4] GET http://localhost:3030/ds?graph=http://localhost:3030/ds/spek
+15:43:34 INFO  Fuseki          :: [4] 200 OK (220 ms)
+18:00:40 INFO  Fuseki          :: [5] GET http://localhost:3030/ds/spek
+18:00:40 INFO  Fuseki          :: [5] No Fuseki dispatch /ds/spek
+18:00:40 INFO  Fuseki          :: [6] GET http://localhost:3030/ds/spek
+18:00:40 INFO  Fuseki          :: [6] No Fuseki dispatch /ds/spek
+18:00:40 INFO  Fuseki          :: [7] GET http://localhost:3030/ds/spek
+18:00:40 INFO  Fuseki          :: [7] No Fuseki dispatch /ds/spek
+18:00:40 INFO  Fuseki          :: [8] GET http://localhost:3030/ds/spek
+18:00:40 INFO  Fuseki          :: [8] No Fuseki dispatch /ds/spek

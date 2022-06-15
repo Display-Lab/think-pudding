@@ -1,0 +1,136 @@
+ {
+  "@context": {
+    "IAO-IsAbout":                          "http://purl.obolibrary.org/obo/IAO_0000136",
+    "obo":                                  "http://purl.obolibrary.org/obo/",
+    "psdo-AchievementSet":                  "http://purl.obolibrary.org/obo/psdo_0000121",
+    "psdo-GoalComparatorElement":           "http://purl.obolibrary.org/obo/psdo_0000046",
+    "psdo-NegativePerformanceGapSet":       "http://purl.obolibrary.org/obo/psdo_0000116",
+    "psdo-NegativePerformanceTrendSet":     "http://purl.obolibrary.org/obo/psdo_0000119",
+    "psdo-PerformanceSummaryDisplay":       "http://purl.obolibrary.org/obo/psdo_0000003",
+    "psdo-PerformanceSummaryDocument":      "http://purl.obolibrary.org/obo/psdo_0000098",
+    "psdo-PerformanceSummaryTextualEntity": "http://purl.obolibrary.org/obo/psdo_0000110",
+    "psdo-PositivePerformanceGapSet":       "http://purl.obolibrary.org/obo/psdo_0000117",
+    "psdo-PositivePerformanceTrendSet":     "http://purl.obolibrary.org/obo/psdo_0000120",
+    "psdo-RecipientElement":                "http://purl.obolibrary.org/obo/psdo_0000041",
+    "psdo-SocialComparatorElement":         "http://purl.obolibrary.org/obo/psdo_0000045",
+    "psdo-Template":                        "http://purl.obolibrary.org/obo/psdo_0000002",
+    "schema-name":                          "http://schema.org/name",
+    "slowmo":                               "http://example.com/slowmo#",
+    "@vocab":                               "http://schema.org/"
+  },
+  "@graph": [
+    {
+      "@id": "http://feedbacktailor.org/ftkb#TopPerformerBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "top performer bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000117"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000045"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "You are a top performer this month for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#WorseSocialBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "worse social bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000116"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000045"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "You are not a top performer this month for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ReachedSocialBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "reached social bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000117"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000045"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000120"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000121"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "You reached the benchmark this month for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#BetterGoalBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "better goal bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000117"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000046"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "Your performance is above the goal for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ApproachingGoalBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "approaching goal bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000116"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000046"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000120"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "Your performance is approaching the goal for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#LostGoalBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "lost goal bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000116"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000046"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000119"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000122"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "Your performance dropped below the goal for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#ReachedGoalBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "reached goal bar",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000117"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000046"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000120"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000121"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "You reached the goal for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    },
+    {
+      "@id": "http://feedbacktailor.org/ftkb#PerformanceWorseningBar",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000002",
+      "name": "performance worsening",
+
+      "http://purl.obolibrary.org/obo/IAO_0000136":[
+
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000119"}
+      ],
+      "psdo:PerformanceSummaryTextualEntity": "Your performance is getting worse for the measure [measure_details]",
+      "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R"
+    }
+  ]
+}

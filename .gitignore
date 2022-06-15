@@ -1,1 +1,3 @@
 catalog-v001.xml
+**/__pycache__/
+python/.vscode/settings.json
