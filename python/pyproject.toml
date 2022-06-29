@@ -6,7 +6,7 @@ authors = ["pboisver <pboisver@umich.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-rdflib = "^6.1.1"
+rdflib = {git = "https://github.com/rdflib/rdflib", rev = "master"}
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"

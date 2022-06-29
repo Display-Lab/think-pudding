@@ -1,0 +1,101 @@
+{
+  "@context": {
+    "@vocab": "http://schema.org/",
+    "slowmo": "http://example.com/slowmo#",
+    "csvw":   "http://www.w3.org/ns/csvw#", 
+    "dc":     "http://purl.org/dc/terms/",
+    "psdo":   "http://purl.obolibrary.org/obo/",
+    "IAO":    "http://purl.obolibrary.org/obo/",
+    "slowmo-Measure":                  "http://example.com/slowmo#Measure",
+    "slowmo-IsAboutPerformer":         "http://example.com/slowmo#IsAboutPerformer",
+    "slowmo-ColumnUse":                "http://example.com/slowmo#ColumnUse",
+    "slowmo-IsAboutTemplate":          "http://example.com/slowmo#IsAboutTemplate",
+    "slowmo-spek":                     "http://example.com/slowmo#spek",
+    "slowmo-IsAboutCausalPathway":     "http://example.com/slowmo#IsAboutCausalPathway",
+    "slowmo-IsAboutOrganization":      "http://example.com/slowmo#IsAboutOrganization",
+    "slowmo-IsAboutMeasure":           "http://example.com/slowmo#IsAboutMeasure",
+    "slowmo-InputTable":               "http://example.com/slowmo#InputTable",
+    "slowmo-WithComparator":           "http://example.com/slowmo#WithComparator",
+    "has_part":        "http://purl.obolibrary.org/obo/bfo#BFO_0000051",
+    "has_disposition": "http://purl.obolibrary.org/obo/RO_0000091",
+    "IAO-IsAbout":		 "http://purl.obolibrary.org/obo/IAO_0000136"
+  },
+  "@id": "http://example.com/app#mpog-aspire",
+  "@type": "http://example.com/slowmo#spek",
+  "slowmo:IsAboutOrganization": {
+    "@type": "Organization",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "USA",
+      "addressRegion": "MI",
+      "streetAddress": "DLHS, 1161 NIB, 300 N Ingalls St.",
+      "postalCode": "48109",
+      "name": "DisplayLab"
+    }
+  },
+  "slowmo:IsAboutMeasure":[
+    { "@id": "_:m1",
+      "@type": "http://purl.obolibrary.org/obo/psdo_0000102",
+      "dc:title": "Demonstration Measure",
+      "identifier": "demo",
+      "slowmo:WithComparator":[
+        { "@type": "http://purl.obolibrary.org/obo/psdo_0000095",
+        "name": "peers",
+        "dc:title": "PEERS"}]
+    }
+  ],
+  "slowmo:IsAboutTemplate": [{ "@id": "http://feedbacktailor.org/ftkb#TopPerformerBar" }],
+  "slowmo:InputTable":{
+    "@type": "http://www.w3.org/ns/csvw#Table",
+    "dc:title": "Demonstration Performance Data", 
+    "csvw:dialect": {
+      "csvw:commentPrefix": "", 
+      "csvw:delimiter": ",", 
+      "csvw:doubleQuote": true, 
+      "csvw:encoding": "utf-8", 
+      "csvw:header": true, 
+      "csvw:headerRowCount": "1", 
+      "csvw:lineTerminators": [
+        "\\n"
+      ], 
+      "csvw:quoteChar": "\"", 
+      "csvw:skipBlankRows": true, 
+      "csvw:skipColumns": "", 
+      "csvw:skipInitialSpace": false, 
+      "csvw:skipRows": "", 
+      "csvw:trim": false
+    }, 
+    "csvw:tableSchema": {
+      "csvw:columns": [
+        {
+          "csvw:datatype": "string", 
+          "dc:description": "Name of measurement", 
+          "csvw:name": "measure", 
+          "csvw:title": "Measure",
+          "slowmo:ColumnUse": "measure"
+        },
+        {
+          "csvw:datatype": "string", 
+          "dc:description": "Name of performer", 
+          "csvw:name": "performer", 
+          "csvw:title": "Performer",
+          "slowmo:ColumnUse": "identifier"
+        },
+        {
+          "csvw:datatype": "date", 
+          "dc:description": "Performance calendar month.", 
+          "csvw:name": "time", 
+          "csvw:title": "Time",
+          "slowmo:ColumnUse": "time"
+        },
+        {
+          "csvw:datatype": "double", 
+          "dc:description": "Example measured rate", 
+          "csvw:name": "rate", 
+          "csvw:title": "Measured Rate",
+          "slowmo:ColumnUse": "rate"
+        }
+      ]
+    }
+  }
+}

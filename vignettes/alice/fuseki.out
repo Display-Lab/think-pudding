@@ -1,0 +1,24 @@
+10:23:13 INFO  Server          :: Apache Jena Fuseki 4.5.0
+10:23:13 INFO  Config          :: FUSEKI_HOME=/Users/pboisver/dev/displaylab/apache-jena-fuseki-4.5.0
+10:23:13 INFO  Config          :: FUSEKI_BASE=/Users/pboisver/dev/displaylab/vert-ramp-affirmation/vignettes/alice/run
+10:23:13 INFO  Config          :: Shiro file: file:///Users/pboisver/dev/displaylab/vert-ramp-affirmation/vignettes/alice/run/shiro.ini
+10:23:13 INFO  Config          :: Template file: templates/config-mem
+10:23:14 INFO  Server          :: Database: in-memory
+10:23:14 INFO  Server          :: Path = /ds
+10:23:14 INFO  Server          :: System
+10:23:14 INFO  Server          ::   Memory: 4.0 GiB
+10:23:14 INFO  Server          ::   Java:   17.0.2
+10:23:14 INFO  Server          ::   OS:     Mac OS X 12.4 aarch64
+10:23:14 INFO  Server          ::   PID:    41052
+10:23:14 INFO  Server          :: Started 2022/06/28 10:23:14 EDT on port 3030
+10:23:18 INFO  Fuseki          :: [1] POST http://localhost:3030/ds?graph=http://localhost:3030/ds/spek
+10:23:18 INFO  Fuseki          :: [1] Body: Content-Length=14623, Content-Type=application/ld+json, Charset=null => JSON-LD : Count=165 Triples=165 Quads=0
+10:23:18 INFO  Fuseki          :: [1] 201 Created (56 ms)
+10:23:18 INFO  Fuseki          :: [2] POST http://localhost:3030/ds?graph=http://localhost:3030/ds/seeps
+10:23:18 INFO  Fuseki          :: [2] Body: Content-Length=4628, Content-Type=application/ld+json, Charset=null => JSON-LD : Count=27 Triples=27 Quads=0
+10:23:18 INFO  Fuseki          :: [2] 201 Created (5 ms)
+10:23:18 INFO  Fuseki          :: [3] POST http://localhost:3030/ds/update
+10:23:18 INFO  Fuseki          :: [3] Update
+10:23:18 INFO  Fuseki          :: [3] 204 No Content (26 ms)
+10:23:18 INFO  Fuseki          :: [4] GET http://localhost:3030/ds?graph=http://localhost:3030/ds/spek
+10:23:18 INFO  Fuseki          :: [4] 200 OK (25 ms)

@@ -1,0 +1,76 @@
+{
+  "@context": {
+    "@vocab":                                           "http://schema.org/",
+    "obo":                                              "http://purl.obolibrary.org/obo/",
+    "cpo-Mechanism":                                    "http://purl.obolibrary.org/obo/cpo_0000001",
+    "cpo-Precondition":                                 "http://purl.obolibrary.org/obo/cpo_0000002",
+    "cpo-Moderator":                                    "http://purl.obolibrary.org/obo/cpo_0000005",
+    "cpo-ProximalOutcome":                              "http://purl.obolibrary.org/obo/cpo_0000006",
+    "cpo-DistalOutcome":                                "http://purl.obolibrary.org/obo/cpo_0000007",
+    "cpo-CognitiveModerator":                           "http://purl.obolibrary.org/obo/cpo_0000008",
+    "cpo-OrganizationalModerator":                      "http://purl.obolibrary.org/obo/cpo_0000009",
+    "cpo-CausalPathway":                                "http://purl.obolibrary.org/obo/cpo_0000029",
+    "cpo-ImplementationStrategy":                       "http://purl.obolibrary.org/obo/cpo_0000053",
+    "cpo-MechanismPrecondition":                        "http://purl.obolibrary.org/obo/cpo_0000054",
+    "cpo-OutcomePrecondition":                          "http://purl.obolibrary.org/obo/cpo_0000055",
+    "psdo-RecipientContent":                            "http://purl.obolibrary.org/obo/psdo_0000097",
+    "psdo-RecipientElement":                            "http://purl.obolibrary.org/obo/psdo_0000041",
+    "psdo-SocialComparatorContent":                     "http://purl.obolibrary.org/obo/psdo_0000095",
+    "psdo-SocialComparatorElement":                     "http://purl.obolibrary.org/obo/psdo_0000045",
+    "psdo-PositivePerformanceGapContent":               "http://purl.obolibrary.org/obo/psdo_0000104",
+    "psdo-PositivePerformanceGapSet":                   "http://purl.obolibrary.org/obo/psdo_0000117",
+    "psdo-NegativePerformanceGapContent":               "http://purl.obolibrary.org/obo/psdo_0000105",
+    "slowmo":                                           "http://example.com/slowmo#",
+    "slowmo-PerformanceGapSize":                        "http://example.com/slowmo#PerformanceGapSize",
+    "slowmo-TrendSlope":                                "http://example.com/slowmo#TrendSlope",
+    "psdo-NegativePerformanceGapContent":               "http://purl.obolibrary.org/obo/psdo_0000105",
+    "psdo-AchievementContent":                          "http://purl.obolibrary.org/obo/psdo_0000112",
+    "psdo-LossContent":                                 "http://purl.obolibrary.org/obo/psdo_0000113",
+    "slowmo":                                           "http://example.com/slowmo#",
+    "slowmo-PerformanceGapSize":                        "http://example.com/slowmo#PerformanceGapSize",
+    "slowmo-HasPrecondition":                           "http://example.com/slowmo#HasPrecondition",
+    "slowmo-HasModerator":                              "http://example.com/slowmo#HasModerator",
+    "slowmo-InterventionContent":                       "http://example.com/slowmo#InterventionContent",
+    "slowmo-Habituation":                               "http://example.com/slowmo#Habituation",
+    "slowmo-RegulatoryFit":                             "http://example.com/slowmo#RegulatoryFit"
+  },
+
+  "@graph": [
+    {
+      "@id": "http://feedbacktailor.org/ftkb#SocialBetter",
+      "@type": "http://purl.obolibrary.org/obo/cpo_0000029",
+      "name": "social better",
+
+      "cpo-ImplementationStrategy": "Show a performance that is better than that of a social comparator",
+
+      "slowmo-InterventionContent": ["BCT 2.2 Feedback on behavior", "BCT 2.7 Feedback on outcomes of behavior", "BCT 6.2 Social comparison"],
+
+      "cpo-Mechanism": ["knowledge", "subjective norms"],
+
+      "slowmo-HasPrecondition":[
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000041"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000095"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000045"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000117"},
+        {"@type": "http://purl.obolibrary.org/obo/psdo_0000104"}
+      ],
+
+      "slowmo-HasModerator":[
+        {"@type": "http://example.com/slowmo#RegulatoryFit"},
+        {"@type": "http://example.com/slowmo#Habituation"},
+        {"@type": "http://example.com/slowmo#PerformanceGapSize"}
+      ],
+
+      "cpo-ProximalOutcome": ["clinical process performance sustainment"],
+
+      "cpo-DistalOutcome": "clinical outcome performance improvement",
+
+      "slowmo-ExampleKeyMessage": "You are a top performer"
+    }
+  ]
+}
+
+
+
+
+

@@ -6,7 +6,7 @@ from rdflib.query import Result
 @pytest.fixture
 def big_graph() -> Graph:
     g = Graph()
-    g.parse("../vignettes/testing/outputs1-10/spek_cs.json")
+    g.parse("../vignettes/alice/outputs/spek_cs.json")
     return g
 
 
@@ -65,7 +65,7 @@ def test_query(big_graph: Graph):
     }
     """)
 
-    logging.critical(qres.graph.serialize())
+    # logging.critical(qres.graph.serialize())
     # assert False
     # assert 2 == len(big_graph)
 
@@ -74,21 +74,20 @@ def test_query(big_graph: Graph):
 
 def test_cp(big_graph: Graph):
 
-  big_graph.parse("../vignettes/testing/causal_pathways.json")
+  big_graph.parse("../vignettes/alice/causal_pathways.json")
   logging.critical("n triples (big_graph): %d", len(big_graph))
 
   qres: Result = big_graph.query("""
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
   PREFIX obo: <http://purl.obolibrary.org/obo/>
   PREFIX slowmo: <http://example.com/slowmo#>
+  PREFIX feeb: <http://feedbacktailor.org/ftkb#>
   construct { 
     ?candidate slowmo:acceptable_by ?path .
-    ?candidate slowmo:AncestorTemplate ?template .
-    }
+  }
   where {
     ?path a obo:cpo_0000029 .
-    ?candidate a obo:cpo_0000053 .
-    ?candidate slowmo:AncestorTemplate ?template .
+    ?candidate a obo:cpo_0000053 . 
     FILTER NOT EXISTS {
       ?path slowmo:HasPrecondition ?attr .
       ?attr a ?atype .
@@ -100,5 +99,10 @@ def test_cp(big_graph: Graph):
   }
   """)
 
-  logging.critical(qres.graph.serialize())
-  logging.critical("n triples: %d", len(qres.graph))
+  for row in qres:
+        print(row)
+  print(len(qres))
+  # logging.critical(qres.graph.serialize(
+  #   # format="json-ld"
+  #   ))
+  # logging.critical("n triples: %d", len(qres.graph))

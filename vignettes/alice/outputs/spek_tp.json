@@ -1,0 +1,481 @@
+{
+    "@graph": [
+        {
+            "@id": "_:b0",
+            "@type": "obo:psdo_0000041"
+        },
+        {
+            "@id": "_:b1",
+            "@type": "obo:psdo_0000041"
+        },
+        {
+            "@id": "_:b2",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b3",
+            "@type": "obo:psdo_0000095",
+            "http://purl.org/dc/terms/title": "PEERS",
+            "name": "peers"
+        },
+        {
+            "@id": "_:b4",
+            "@type": "obo:psdo_0000102",
+            "http://purl.org/dc/terms/title": "Demonstration Measure",
+            "slowmo:WithComparator": {
+                "@id": "_:b3"
+            },
+            "identifier": "demo"
+        },
+        {
+            "@id": "_:b5",
+            "@type": "obo:psdo_0000041"
+        },
+        {
+            "@id": "_:b6",
+            "@type": "obo:psdo_0000045"
+        },
+        {
+            "@id": "_:b7",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000104",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b8",
+            "slowmo:ColumnUse": "rate",
+            "http://www.w3.org/ns/csvw#datatype": "double",
+            "http://www.w3.org/ns/csvw#title": "Measured Rate",
+            "http://www.w3.org/ns/csvw#name": "rate",
+            "http://purl.org/dc/terms/description": "Example measured rate"
+        },
+        {
+            "@id": "_:b9",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b10",
+            "http://www.w3.org/ns/csvw#skipBlankRows": {
+                "@value": "true",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            },
+            "http://www.w3.org/ns/csvw#encoding": "utf-8",
+            "http://www.w3.org/ns/csvw#delimiter": ",",
+            "http://www.w3.org/ns/csvw#skipColumns": "",
+            "http://www.w3.org/ns/csvw#headerRowCount": "1",
+            "http://www.w3.org/ns/csvw#commentPrefix": "",
+            "http://www.w3.org/ns/csvw#header": {
+                "@value": "true",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            },
+            "http://www.w3.org/ns/csvw#doubleQuote": {
+                "@value": "true",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            },
+            "http://www.w3.org/ns/csvw#trim": {
+                "@value": "false",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            },
+            "http://www.w3.org/ns/csvw#quoteChar": "\"",
+            "http://www.w3.org/ns/csvw#lineTerminators": "\\n",
+            "http://www.w3.org/ns/csvw#skipInitialSpace": {
+                "@value": "false",
+                "@type": "http://www.w3.org/2001/XMLSchema#boolean"
+            },
+            "http://www.w3.org/ns/csvw#skipRows": ""
+        },
+        {
+            "@id": "_:b11",
+            "slowmo:AncestorTemplate": "http://feedbacktailor.org/ftkb#TopPerformerBar",
+            "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R",
+            "slowmo:AncestorPerformer": "_:pAlice",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b12"
+                },
+                {
+                    "@id": "_:b13"
+                },
+                {
+                    "@id": "_:b14"
+                },
+                {
+                    "@id": "_:b15"
+                },
+                {
+                    "@id": "_:b16"
+                }
+            ],
+            "slowmo:acceptable_by": {
+                "@id": "http://feedbacktailor.org/ftkb#SocialBetter"
+            },
+            "@type": "obo:cpo_0000053",
+            "psdo:PerformanceSummaryTextualEntity": "You are a top performer this month for the measure [measure_details]"
+        },
+        {
+            "@id": "_:b12",
+            "@type": "obo:psdo_0000041"
+        },
+        {
+            "@id": "_:b13",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b14",
+            "@type": "obo:psdo_0000117"
+        },
+        {
+            "@id": "_:b15",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000104",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b16",
+            "@type": "obo:psdo_0000045"
+        },
+        {
+            "@id": "_:b17",
+            "slowmo:AncestorTemplate": "http://feedbacktailor.org/ftkb#TopPerformerBar",
+            "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R",
+            "slowmo:AncestorPerformer": "_:pPeer3",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b5"
+                },
+                {
+                    "@id": "_:b7"
+                },
+                {
+                    "@id": "_:b18"
+                },
+                {
+                    "@id": "_:b19"
+                },
+                {
+                    "@id": "_:b20"
+                }
+            ],
+            "slowmo:acceptable_by": {
+                "@id": "http://feedbacktailor.org/ftkb#SocialBetter"
+            },
+            "@type": "obo:cpo_0000053",
+            "psdo:PerformanceSummaryTextualEntity": "You are a top performer this month for the measure [measure_details]"
+        },
+        {
+            "@id": "_:b18",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b19",
+            "@type": "obo:psdo_0000045"
+        },
+        {
+            "@id": "_:b20",
+            "@type": "obo:psdo_0000117"
+        },
+        {
+            "@id": "_:b21",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000104",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b22",
+            "@type": "Organization",
+            "address": {
+                "@id": "_:b23"
+            }
+        },
+        {
+            "@id": "_:b23",
+            "addressRegion": "MI",
+            "streetAddress": "DLHS, 1161 NIB, 300 N Ingalls St.",
+            "@type": "PostalAddress",
+            "postalCode": "48109",
+            "name": "DisplayLab",
+            "addressCountry": "USA"
+        },
+        {
+            "@id": "_:b24",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b25"
+                },
+                {
+                    "@id": "_:b26"
+                }
+            ],
+            "@type": "obo:psdo_0000085"
+        },
+        {
+            "@id": "_:b25",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b26",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000104",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b27",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b28",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b29",
+            "slowmo:ColumnUse": "time",
+            "http://www.w3.org/ns/csvw#datatype": "date",
+            "http://www.w3.org/ns/csvw#title": "Time",
+            "http://www.w3.org/ns/csvw#name": "time",
+            "http://purl.org/dc/terms/description": "Performance calendar month."
+        },
+        {
+            "@id": "_:b30",
+            "@type": "obo:psdo_0000117"
+        },
+        {
+            "@id": "_:b31",
+            "slowmo:AncestorTemplate": "http://feedbacktailor.org/ftkb#TopPerformerBar",
+            "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R",
+            "slowmo:AncestorPerformer": "_:pPeer2",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b1"
+                },
+                {
+                    "@id": "_:b27"
+                },
+                {
+                    "@id": "_:b30"
+                },
+                {
+                    "@id": "_:b32"
+                }
+            ],
+            "@type": "obo:cpo_0000053",
+            "psdo:PerformanceSummaryTextualEntity": "You are a top performer this month for the measure [measure_details]"
+        },
+        {
+            "@id": "_:b32",
+            "@type": "obo:psdo_0000045"
+        },
+        {
+            "@id": "_:b33",
+            "slowmo:ColumnUse": "identifier",
+            "http://www.w3.org/ns/csvw#datatype": "string",
+            "http://www.w3.org/ns/csvw#title": "Performer",
+            "http://www.w3.org/ns/csvw#name": "performer",
+            "http://purl.org/dc/terms/description": "Name of performer"
+        },
+        {
+            "@id": "_:b34",
+            "slowmo:RegardingComparator": {
+                "@id": "_:b3"
+            },
+            "@type": "obo:psdo_0000095",
+            "slowmo:RegardingMeasure": {
+                "@id": "_:b4"
+            }
+        },
+        {
+            "@id": "_:b35",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b2"
+                },
+                {
+                    "@id": "_:b21"
+                }
+            ],
+            "@type": "obo:psdo_0000085"
+        },
+        {
+            "@id": "_:b36",
+            "@type": "http://www.w3.org/ns/csvw#Table",
+            "http://purl.org/dc/terms/title": "Demonstration Performance Data",
+            "http://www.w3.org/ns/csvw#tableSchema": {
+                "@id": "_:b37"
+            },
+            "http://www.w3.org/ns/csvw#dialect": {
+                "@id": "_:b10"
+            }
+        },
+        {
+            "@id": "_:b37",
+            "http://www.w3.org/ns/csvw#columns": [
+                {
+                    "@id": "_:b8"
+                },
+                {
+                    "@id": "_:b29"
+                },
+                {
+                    "@id": "_:b33"
+                },
+                {
+                    "@id": "_:b38"
+                }
+            ]
+        },
+        {
+            "@id": "_:b38",
+            "slowmo:ColumnUse": "measure",
+            "http://www.w3.org/ns/csvw#datatype": "string",
+            "http://www.w3.org/ns/csvw#title": "Measure",
+            "http://www.w3.org/ns/csvw#name": "measure",
+            "http://purl.org/dc/terms/description": "Name of measurement"
+        },
+        {
+            "@id": "_:b39",
+            "obo:RO_0000091": {
+                "@id": "_:b9"
+            },
+            "@type": "obo:psdo_0000085"
+        },
+        {
+            "@id": "_:b40",
+            "slowmo:AncestorTemplate": "http://feedbacktailor.org/ftkb#TopPerformerBar",
+            "psdo:PerformanceSummaryDisplay": "https://github.com/Display-Lab/card-study/blob/master/cards/fig_comp_bar.R",
+            "slowmo:AncestorPerformer": "_:pPeer1",
+            "obo:RO_0000091": [
+                {
+                    "@id": "_:b0"
+                },
+                {
+                    "@id": "_:b6"
+                },
+                {
+                    "@id": "_:b28"
+                },
+                {
+                    "@id": "_:b41"
+                }
+            ],
+            "@type": "obo:cpo_0000053",
+            "psdo:PerformanceSummaryTextualEntity": "You are a top performer this month for the measure [measure_details]"
+        },
+        {
+            "@id": "_:b41",
+            "@type": "obo:psdo_0000117"
+        },
+        {
+            "@id": "_:b42",
+            "obo:RO_0000091": {
+                "@id": "_:b34"
+            },
+            "@type": "obo:psdo_0000085"
+        },
+        {
+            "@id": "http://example.com/app#mpog-aspire",
+            "slowmo:IsAboutMeasure": {
+                "@id": "_:b4"
+            },
+            "slowmo:IsAboutOrganization": {
+                "@id": "_:b22"
+            },
+            "@type": "slowmo:spek",
+            "slowmo:InputTable": {
+                "@id": "_:b36"
+            },
+            "slowmo:IsAboutPerformer": [
+                {
+                    "@id": "_:b24"
+                },
+                {
+                    "@id": "_:b35"
+                },
+                {
+                    "@id": "_:b39"
+                },
+                {
+                    "@id": "_:b42"
+                }
+            ],
+            "slowmo:IsAboutTemplate": {
+                "@id": "http://feedbacktailor.org/ftkb#TopPerformerBar"
+            },
+            "slowmo:HasCandidate": [
+                {
+                    "@id": "_:b11"
+                },
+                {
+                    "@id": "_:b17"
+                },
+                {
+                    "@id": "_:b31"
+                },
+                {
+                    "@id": "_:b40"
+                }
+            ]
+        }
+    ],
+    "@context": {
+        "slowmo": "http://example.com/slowmo#",
+        "obo": "http://purl.obolibrary.org/obo/",
+        "@vocab": "http://schema.org/"
+    }
+}
