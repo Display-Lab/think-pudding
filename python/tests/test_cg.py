@@ -10,14 +10,16 @@ TP_QUERY = """
   PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
   PREFIX obo: <http://purl.obolibrary.org/obo/>
   PREFIX slowmo: <http://example.com/slowmo#>
-  construct { 
-    ?candidate slowmo:acceptable_by ?path .
-  }
   # INSERT {
   #   GRAPH <urn:spek> {
   #     ?candidate slowmo:acceptable_by ?path .
   #   }
   # }
+  # USING <Urn:spek>
+  # USING <urn:paths>
+  construct { 
+    ?candidate slowmo:acceptable_by ?path .
+  }
   from <urn:spek>
   from <urn:pathways>  
   where {
